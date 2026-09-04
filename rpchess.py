@@ -4,7 +4,9 @@ import random
 import os
 
 # Global engine variable (initialized once)
-STOCKFISH_PATH = "./stockfish/stockfish-windows-x86-64-avx2.exe"  # Change this to your actual path
+with open(os.path.join("stockfish", "stockfish_path.txt"), "r") as f:
+    STOCKFISH_PATH = os.path.join("stockfish", f.read().strip())
+
 
 def print_help():
     print("==================================================")
@@ -69,7 +71,7 @@ def get_stockfish_best_move(board, engine, time_limit=0.5):
         )
 
         pv = result.get("pv")
-
+        print(result["score"])
         if not pv:
             return None
 
