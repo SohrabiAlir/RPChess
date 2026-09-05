@@ -1,0 +1,1035 @@
+PS C:\Users\Asus\Desktop\RPChess> python rpchess.py
+Stockfish engine loaded successfully!
+
+
+============================================================
+Starting 10 games: Expectimax (White) vs Stockfish (Black)
+Each turn determined by coin toss
+Draw after 100 moves
+============================================================
+
+
+--- Game 1/10 ---
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nf3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nxe5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ng6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nxf8
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nc6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bf5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: g3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Kxf8
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bg2
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rg1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rh1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qd7
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bh3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bxg2
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rf1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qh3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bxf1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bxe2
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qf1#
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qxe2
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kxf1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kg1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Re8
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qxe8+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) captures the king!
+
+Game 1 result: White (Expectimax)
+Total moves: 26
+------------------------------
+
+--- Game 2/10 ---
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: e3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5+
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: c6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bxc6+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) captures the king!
+
+Game 2 result: White (Expectimax)
+Total moves: 6
+------------------------------
+
+--- Game 3/10 ---
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nf3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nc3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nd5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: c6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nc7+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) captures the king!
+
+Game 3 result: White (Expectimax)
+Total moves: 7
+------------------------------
+
+--- Game 4/10 ---
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nf3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nc3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nd5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: c3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: c6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nc7+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) captures the king!
+
+Game 4 result: White (Expectimax)
+Total moves: 7
+------------------------------
+
+--- Game 5/10 ---
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: e3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nf6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ke2
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ba4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: c6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: cxb5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Be7
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nc6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: b4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: exd4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: exd4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kf1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qe2
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: O-O
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qxb5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qxc6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qxc8
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qxc8
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qxc2
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qd1#
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) captures the king!
+
+Game 5 result: White (Expectimax)
+Total moves: 26
+------------------------------
+
+--- Game 6/10 ---
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: e3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nf6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: g6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ba4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bg7
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: c6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bxc6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nxc6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: b4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nxb4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bf5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nf3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ne5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: O-O
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qf3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Na3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qf4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qxb4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qxb7
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nd7
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nxe5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nf3+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: gxf3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qc6+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) captures the king!
+
+Game 6 result: White (Expectimax)
+Total moves: 27
+------------------------------
+
+--- Game 7/10 ---
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: e3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ba4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: c6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bxc6+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) captures the king!
+
+Game 7 result: White (Expectimax)
+Total moves: 6
+------------------------------
+
+--- Game 8/10 ---
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: e3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nf6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: c6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: cxb5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nc6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qg4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bxg4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: f3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bd7
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: b4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nxb4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kd1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ba3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bxb4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ne2
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bxb4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Be7
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nf4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ne6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bxe6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: dxe3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kc1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rg1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rh1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Rc8
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qc7
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kd1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qxc2+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ke2
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kxe3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kf2
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Ne4+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: fxe4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kg1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: h3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qxe4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bd5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qxg2#
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) captures the king!
+
+Game 8 result: White (Expectimax)
+Total moves: 43
+------------------------------
+
+--- Game 9/10 ---
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nf3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nc3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nd5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: exf3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: c6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nc7+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) captures the king!
+
+Game 9 result: White (Expectimax)
+Total moves: 8
+------------------------------
+
+--- Game 10/10 ---
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: e3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: c6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: cxb5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qh5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nf6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qxf7+
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Kxf7
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Kg8
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: b4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nf3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nc6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ne5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nxe5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb2
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bxe5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: h5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: O-O
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bxf6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: exf6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: c3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qe8
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Kh7
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: d3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Re1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Re2
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bd6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bg4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bxe2
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kh1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qe5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qxh2#
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kxh2
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) captures the king!
+
+Game 10 result: White (Expectimax)
+Total moves: 34
+------------------------------
+
+============================================================
+FINAL STATISTICS
+============================================================
+Total games: 10
+White (Expectimax) wins: 7 (70.0%)
+Black (Stockfish) wins: 3 (30.0%)
+Draws: 0 (0.0%)
+============================================================
+
+PS C:\Users\Asus\Desktop\RPChess> python rpchess.py
+Stockfish engine loaded successfully!
+
+
+============================================================
+Starting 10 games: Expectimax (White) vs Stockfish (Black)
+Each turn determined by coin toss
+Draw after 100 moves
+============================================================
+
+
+--- Game 1/10 ---
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: e3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) captures the king!
+
+Game 1 cumulative result: White (Expectimax)
+Total moves: 4
+------------------------------
+
+--- Game 2/10 ---
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: e3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ba4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: c6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qh5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ke2
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nf6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nxh5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bxc6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ba4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: a6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: axb5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: b4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kf1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bxb4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nc6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: O-O
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nf3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Re8
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nf6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kg1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nxe5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nxf7
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Kxf7
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Kg8
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: c4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: bxc4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: dxe3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: exf2+
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) captures the king!
+
+Game 2 cumulative result: Unknown
+Total moves: 34
+------------------------------
+
+--- Game 3/10 ---
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nf3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nc3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nc6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: dxc3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ne5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nxc6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: bxc6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: dxc3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qxd8+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) captures the king!
+
+Game 3 cumulative result: White (Expectimax)
+Total moves: 13
+------------------------------
+
+--- Game 4/10 ---
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nf3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: exf3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: h4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: gxf3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bh3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bd7+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) captures the king!
+
+Game 4 cumulative result: White (Expectimax)
+Total moves: 9
+------------------------------
+
+--- Game 5/10 ---
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nf3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nc3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: exf3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nd5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nxc7+
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qxc7
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: gxf3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bh3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bd7+
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bxd7
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rg1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qxh2
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rxg7
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qh1+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rg1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qxg1#
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) captures the king!
+
+Game 5 cumulative result: White (Expectimax)
+Total moves: 19
+------------------------------
+
+--- Game 6/10 ---
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: e3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ba4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ba4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: c6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qh5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ke2
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nf6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qxf7+
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Kxf7
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb3+
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Na6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nc5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kf1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bxd5+
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: cxd5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: b4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: bxc5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bxc5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Re8
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Kg8
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nf3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bf5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Rc8
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nxe5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Rxe5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb2
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bxd4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bxc5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Rexc5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Rxc2
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rg1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rh1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qd3+
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) captures the king!
+
+Game 6 cumulative result: Unknown
+Total moves: 38
+------------------------------
+
+--- Game 7/10 ---
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nf3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: exf3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: fxe2
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: exd1=R+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kxd1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Be7
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Re1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nf6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Re5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bc4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bc4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5+
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bd7
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bxb5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: d3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rxd5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qxd5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qxg2
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Be3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qf1+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kd2
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Ne4+
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) captures the king!
+
+Game 7 cumulative result: Black (Stockfish)
+Total moves: 27
+------------------------------
+
+--- Game 8/10 ---
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: e3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nf6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ke2
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ba4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: g6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bg7
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: O-O
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: c5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: a6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kf1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: b5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: c4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: cxb3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: axb3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qf3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qxa8
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qc7
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bb7
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qxb7
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qxb7
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nc6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ne2
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rg1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rh1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rg1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nb4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nxc2
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Na3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nxc2
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: e4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Rc8
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rh1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rg1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rh1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rg1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nxe4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rxa6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ra8
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rxc8+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) captures the king!
+
+Game 8 cumulative result: Unknown
+Total moves: 42
+------------------------------
+
+--- Game 9/10 ---
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nf3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: exf3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: fxe2
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: exd1=R+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kxd1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nf6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Ne4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nxf2+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5+
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) captures the king!
+
+Game 9 cumulative result: White (Expectimax)
+Total moves: 12
+------------------------------
+
+--- Game 10/10 ---
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: e3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: e6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nf6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bb5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ke2
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: a6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: axb5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: d5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nc3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: b4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: bxc3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: cxd2
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qxd2
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Qxd5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: exd5
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Kf1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Nc6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: e4
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Bg5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: dxe4
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: h6
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: hxg5
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Be6
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Rd1
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Qxd1#
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Nf3
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: Ne1
+Coin Toss: 0 -> White (Expectimax) to play
+White (Expectimax) plays: c3
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) plays: Bc4+
+Coin Toss: 1 -> Black (Stockfish) to play
+Black (Stockfish) captures the king!
+
+Game 10 cumulative result: Unknown
+Total moves: 29
+------------------------------
+
+============================================================
+FINAL STATISTICS
+============================================================
+Total games: 10
+White (Expectimax) wins: 5 (50.0%)
+Black (Stockfish) wins: 5 (50.0%)
+Draws: 0 (0.0%)
+============================================================
+
+PS C:\Users\Asus\Desktop\RPChess>
