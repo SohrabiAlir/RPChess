@@ -1,0 +1,175 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    text-align: center;
+    color: #2d3748;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+#login input, #move-input input {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    width: 70%;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+#login input:focus, #move-input input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+#game {
+    display: none;
+}
+
+#game-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f7fafc;
+    border-radius: 10px;
+}
+
+#game-info p {
+    margin: 5px 0;
+    color: #2d3748;
+}
+
+#board-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.board svg {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+#move-input {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+#move-input input {
+    flex: 1;
+    min-width: 200px;
+}
+
+#move-log {
+    margin-top: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+    background: #f7fafc;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+#move-log h3 {
+    margin: 0 0 10px 0;
+    color: #2d3748;
+}
+
+.log-entry {
+    padding: 5px 10px;
+    margin: 3px 0;
+    background: white;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
+    border-left: 3px solid #667eea;
+}
+
+#waiting {
+    text-align: center;
+    font-size: 1.2em;
+    color: #2d3748;
+}
+
+#game-over {
+    display: none;
+    text-align: center;
+}
+
+#game-over h2 {
+    color: #2d3748;
+}
+
+#winner-message {
+    font-size: 1.3em;
+    margin: 20px 0;
+    padding: 20px;
+    background: #f7fafc;
+    border-radius: 10px;
+}
+
+#message {
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+    
+    #login input, #move-input input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    #game-info {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RPChess Online</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>♟️ RPChess Online</h1>
+        <div id="login" class="container">
+            <input type="text" id="nickname" placeholder="Enter nickname..." />
+            <button onclick="joinGame()">Find Game</button>
+        </div>
+        
+        <div id="game" style="display:none;" class="container">
+            <div id="game-info">
+                <p><strong>You:</strong> <span id="player-color"></span></p>
+                <p><strong>Opponent:</strong> <span id="opponent"></span></p>
+                <p><strong>Turn:</strong> <span id="turn"></span></p>
+                <p id="message"></p>
+            </div>
+            
+            <div id="board-container">
+                <div id="board" class="board"></div>
+            </div>
+            
+            <div id="move-input">
+                <input type="text" id="move-uci" placeholder="Enter UCI move (e.g., e2e4)" />
+                <button onclick="sendMove()">Move</button>
+                <button onclick="sendAIMove()">🤖 AI Move</button>
+            </div>
+            
+            <div id="move-log">
+                <h3>Move Log</h3>
+                <div id="log-entries"></div>
+            </div>
+        </div>
+        
+        <div id="waiting" style="display:none;" class="container">
+            <p>⏳ Waiting for opponent...</p>
+        </div>
+        
+        <div id="game-over" style="display:none;" class="container">
+            <h2>Game Over!</h2>
+            <p id="winner-message"></p>
+            <button onclick="resetGame()">Play Again</button>
+        </div>
+    </div>
+    
+    <script>
+        const socket = io();
+        let currentGameId = null;
+        let currentColor = null;
+        
+        // Update the board display
+        function updateBoard(svg) {
+            document.getElementById('board').innerHTML = svg;
+        }
+        
+        // Join game
+        function joinGame() {
+            const nickname = document.getElementById('nickname').value.trim();
+            if (!nickname) {
+                alert('Please enter a nickname');
+                return;
+            }
+            
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('waiting').style.display = 'block';
+            socket.emit('join', { nickname: nickname });
+        }
+        
+        // Send a move
+        function sendMove() {
+            const input = document.getElementById('move-uci');
+            const move = input.value.trim();
+            if (!move) return;
+            
+            socket.emit('move', {
+                game_id: currentGameId,
+                move: move,
+                ai: false
+            });
+            input.value = '';
+        }
+        
+        // Send AI move
+        function sendAIMove() {
+            socket.emit('move', {
+                game_id: currentGameId,
+                move: '',  // AI will be handled server-side
+                ai: true
+            });
+        }
+        
+        // Reset game
+        function resetGame() {
+            document.getElementById('game-over').style.display = 'none';
+            document.getElementById('game').style.display = 'none';
+            document.getElementById('login').style.display = 'block';
+            document.getElementById('waiting').style.display = 'none';
+            currentGameId = null;
+            currentColor = null;
+        }
+        
+        // Socket event handlers
+        socket.on('waiting', function(data) {
+            document.getElementById('waiting').innerHTML = `<p>${data.message}</p>`;
+        });
+        
+        socket.on('game_start', function(data) {
+            document.getElementById('waiting').style.display = 'none';
+            document.getElementById('game').style.display = 'block';
+            document.getElementById('game-over').style.display = 'none';
+            
+            currentGameId = data.game_id;
+            currentColor = data.color;
+            
+            document.getElementById('player-color').textContent = data.color.charAt(0).toUpperCase() + data.color.slice(1);
+            document.getElementById('opponent').textContent = data.opponent;
+            document.getElementById('message').textContent = data.message;
+            
+            updateBoard(data.board_svg);
+            document.getElementById('turn').textContent = 'White';
+            document.getElementById('log-entries').innerHTML = '';
+        });
+        
+        socket.on('board_update', function(data) {
+            updateBoard(data.board_svg);
+            document.getElementById('turn').textContent = data.turn;
+            document.getElementById('message').textContent = data.message;
+            
+            // Add move to log
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            logEntry.textContent = `${data.turn}: ${data.last_move}`;
+            document.getElementById('log-entries').appendChild(logEntry);
+        });
+        
+        socket.on('game_over', function(data) {
+            document.getElementById('game-over').style.display = 'block';
+            document.getElementById('winner-message').textContent = data.message;
+            document.getElementById('game').style.display = 'none';
+        });
+        
+        socket.on('opponent_left', function() {
+            alert('Your opponent has left the game!');
+            resetGame();
+        });
+        
+        socket.on('error', function(data) {
+            alert('Error: ' + data.message);
+        });
+    </script>
+</body>
+</html>
