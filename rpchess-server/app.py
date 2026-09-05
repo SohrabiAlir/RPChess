@@ -17,6 +17,61 @@ games = {}
 game_id_counter = 0
 lock = Lock()
 
+def get_all_pseudo_legal_moves(board):
+    """
+    Generate all pseudo-legal moves including those that leave the king in check.
+    This is for RPChess where king safety rules don't apply.
+    """
+    moves = []
+    for square in chess.SQUARES:
+        piece = board.piece_at(square)
+        if piece and piece.color == board.turn:
+            # Generate moves for this piece
+            for move in board.generate_pseudo_legal_moves(from_mask=1 << square):
+                moves.append(move)
+    return moves
+
+def parse_san_rpchess(board, san):
+    """
+    Parse SAN without enforcing standard chess legality.
+    Allows king captures and moves that leave king in check.
+    """
+    # First, try to parse as UCI move (coordinate format like e2e4)
+    try:
+        move = board.parse_uci(san)
+        # Verify it's in pseudo-legal moves
+        all_moves = get_all_pseudo_legal_moves(board)
+        if move in all_moves:
+            return move
+    except ValueError:
+        pass
+    
+    # For algebraic notation, generate all pseudo-legal moves and match SAN
+    all_moves = get_all_pseudo_legal_moves(board)
+    
+    # Try to match the SAN to one of the moves
+    matches = []
+    for move in all_moves:
+        try:
+            # Get SAN representation of this move
+            move_san = board.san(move)
+            if move_san == san:
+                matches.append(move)
+            # Also check if the SAN matches without disambiguation
+            elif san.replace('+', '').replace('#', '') == move_san.replace('+', '').replace('#', ''):
+                matches.append(move)
+        except:
+            continue
+    
+    if len(matches) == 1:
+        return matches[0]
+    elif len(matches) > 1:
+        # Try to disambiguate by checking the source square
+        # This is a simplified approach - for more complex cases, you'd need full SAN parsing
+        return matches[0]  # Return the first match as fallback
+    
+    raise ValueError(f"Invalid move: {san}")
+
 @socketio.on('connect')
 def handle_connect():
     print(f"Client connected: {request.sid}")
@@ -128,17 +183,18 @@ def handle_move(data):
         emit('error', {'message': 'Not your turn! (Black)'})
         return
     
-    # Parse algebraic notation
+    # Parse algebraic notation WITHOUT legality checking
     try:
-        move = board.parse_san(move_san)
+        move = parse_san_rpchess(board, move_san)
         print(f"Parsed move: {move}")
     except ValueError as e:
         print(f"Parse error: {e}")
-        emit('error', {'message': f'Invalid algebraic notation: "{move_san}". Use e.g., Nf3, exd5, O-O'})
+        emit('error', {'message': f'Invalid move: "{move_san}". Use e.g., Nf3, exd5, O-O'})
         return
     
-    # Check if move is pseudo-legal (RPChess)
-    if move not in board.pseudo_legal_moves:
+    # Additional validation: check if the move is in pseudo-legal moves
+    all_moves = get_all_pseudo_legal_moves(board)
+    if move not in all_moves:
         emit('error', {'message': f'Illegal move: {move_san}'})
         return
     
