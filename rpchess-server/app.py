@@ -72,25 +72,27 @@ def handle_join(data):
             join_room(str(game_id))
             waiting_player = None
             
-            board_svg = chess.svg.board(games[game_id]['board'], size=400)
+            # Generate board SVG from BOTH perspectives
+            board_svg_white = chess.svg.board(games[game_id]['board'], size=400, orientation=chess.WHITE)
+            board_svg_black = chess.svg.board(games[game_id]['board'], size=400, orientation=chess.BLACK)
             
             print(f"🎮 Game {game_id} started: {white_name} (White) vs {black_name} (Black)")
             
-            # Send to White player
+            # Send to White player with White's perspective
             socketio.emit('game_start', {
                 'game_id': game_id,
                 'color': 'white',
                 'opponent': black_name,
-                'board_svg': board_svg,
+                'board_svg': board_svg_white,
                 'message': f"You are White against {black_name}"
             }, room=white_sid)
             
-            # Send to Black player
+            # Send to Black player with Black's perspective
             socketio.emit('game_start', {
                 'game_id': game_id,
                 'color': 'black',
                 'opponent': white_name,
-                'board_svg': board_svg,
+                'board_svg': board_svg_black,
                 'message': f"You are Black against {white_name}"
             }, room=black_sid)
             
@@ -102,10 +104,16 @@ def handle_join(data):
 @socketio.on('move')
 def handle_move(data):
     game_id = data.get('game_id')
-    move_san = data.get('move')  # Now expecting algebraic notation
+    move_san = data.get('move', '').strip()
+    
+    print(f"Received move: '{move_san}' from {request.sid}")
     
     if game_id not in games:
         emit('error', {'message': 'Game not found'})
+        return
+    
+    if not move_san:
+        emit('error', {'message': 'Please enter a move (e.g., Nf3, exd5, O-O)'})
         return
     
     game = games[game_id]
@@ -122,10 +130,11 @@ def handle_move(data):
     
     # Parse algebraic notation
     try:
-        print(move)
         move = board.parse_san(move_san)
-    except ValueError:
-        emit('error', {'message': f'Invalid algebraic notation: {move_san}. Use e.g., Nf3, exd5, O-O'})
+        print(f"Parsed move: {move}")
+    except ValueError as e:
+        print(f"Parse error: {e}")
+        emit('error', {'message': f'Invalid algebraic notation: "{move_san}". Use e.g., Nf3, exd5, O-O'})
         return
     
     # Check if move is pseudo-legal (RPChess)
@@ -157,8 +166,6 @@ def handle_move(data):
     if captured_piece and captured_piece.piece_type == chess.KING:
         winner = 'White' if game['turn'] == chess.WHITE else 'Black'
         save_game_log(game_id)
-        # Get the game object before deleting
-        game_copy = games[game_id]
         del games[game_id]
         socketio.emit('game_over', {
             'winner': winner,
@@ -169,20 +176,32 @@ def handle_move(data):
     # Coin toss for next turn
     coin = random.randint(0, 1)
     next_turn = chess.WHITE if coin == 0 else chess.BLACK
+    
+    # Update BOTH the game state AND the board object
     game['turn'] = next_turn
     board.turn = next_turn
+    
     next_player = 'White' if next_turn == chess.WHITE else 'Black'
     
-    # Generate new board SVG
-    board_svg = chess.svg.board(board, size=400)
+    # Generate board SVG from BOTH perspectives
+    board_svg_white = chess.svg.board(board, size=400, orientation=chess.WHITE)
+    board_svg_black = chess.svg.board(board, size=400, orientation=chess.BLACK)
     
-    # Broadcast update to BOTH players in the room
+    # Broadcast update to White player with White's perspective
     socketio.emit('board_update', {
-        'board_svg': board_svg,
+        'board_svg': board_svg_white,
         'turn': next_player,
         'last_move': san,
         'message': f"Coin toss: {coin} -> {next_player}'s turn!"
-    }, room=str(game_id))
+    }, room=game['white'])
+    
+    # Broadcast update to Black player with Black's perspective
+    socketio.emit('board_update', {
+        'board_svg': board_svg_black,
+        'turn': next_player,
+        'last_move': san,
+        'message': f"Coin toss: {coin} -> {next_player}'s turn!"
+    }, room=game['black'])
 
 def save_game_log(game_id):
     if game_id not in games:
