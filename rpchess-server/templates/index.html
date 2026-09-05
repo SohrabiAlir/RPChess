@@ -15,6 +15,9 @@
         #move-input input { flex: 1; min-width: 150px; }
         .error { color: red; }
         .success { color: green; }
+        .status { margin: 10px 0; padding: 10px; background: #e8f4fd; border-radius: 5px; }
+        .turn-indicator { font-weight: bold; color: #2d3748; }
+        .board svg { max-width: 100%; height: auto; }
     </style>
 </head>
 <body>
@@ -33,8 +36,8 @@
         <div id="game-info">
             <p><strong>You:</strong> <span id="player-color"></span></p>
             <p><strong>Opponent:</strong> <span id="opponent"></span></p>
-            <p><strong>Turn:</strong> <span id="turn"></span></p>
-            <p id="message"></p>
+            <p><strong>Turn:</strong> <span id="turn" class="turn-indicator"></span></p>
+            <p id="message" class="status"></p>
         </div>
         
         <div id="board" class="board"></div>
@@ -63,7 +66,10 @@
         
         function joinGame() {
             const nickname = document.getElementById('nickname').value.trim();
-            if (!nickname) { alert('Please enter a nickname'); return; }
+            if (!nickname) { 
+                alert('Please enter a nickname'); 
+                return; 
+            }
             
             document.getElementById('login').style.display = 'none';
             document.getElementById('waiting').style.display = 'block';
@@ -73,9 +79,16 @@
         function sendMove() {
             const input = document.getElementById('move-san');
             const move = input.value.trim();
-            if (!move) return;
             
-            socket.emit('move', { game_id: currentGameId, move: move });
+            if (!move) {
+                alert('Please enter a move (e.g., Nf3, exd5, O-O)');
+                return;
+            }
+            
+            socket.emit('move', { 
+                game_id: currentGameId, 
+                move: move 
+            });
             input.value = '';
         }
         
@@ -85,22 +98,33 @@
             document.getElementById('login').style.display = 'block';
             document.getElementById('waiting').style.display = 'none';
             currentGameId = null;
+            document.getElementById('log-entries').innerHTML = '';
         }
         
         // Handle Enter key in the move input
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('move-san').addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') {
-                    sendMove();
-                }
-            });
+            const moveInput = document.getElementById('move-san');
+            if (moveInput) {
+                moveInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        sendMove();
+                    }
+                });
+            }
+        });
+        
+        socket.on('connect', function() {
+            console.log('Connected to server');
         });
         
         socket.on('waiting', function(data) {
+            console.log('Waiting:', data);
             document.getElementById('waiting').innerHTML = `<p>${data.message}</p>`;
         });
         
         socket.on('game_start', function(data) {
+            console.log('Game started:', data);
             document.getElementById('waiting').style.display = 'none';
             document.getElementById('game').style.display = 'block';
             document.getElementById('game-over').style.display = 'none';
@@ -115,6 +139,7 @@
         });
         
         socket.on('board_update', function(data) {
+            console.log('Board update:', data);
             document.getElementById('board').innerHTML = data.board_svg;
             document.getElementById('turn').textContent = data.turn;
             document.getElementById('message').textContent = data.message;
@@ -126,6 +151,7 @@
         });
         
         socket.on('game_over', function(data) {
+            console.log('Game over:', data);
             document.getElementById('game-over').style.display = 'block';
             document.getElementById('winner-message').textContent = data.message;
             document.getElementById('game').style.display = 'none';
@@ -137,6 +163,7 @@
         });
         
         socket.on('error', function(data) {
+            console.error('Server error:', data);
             alert('Error: ' + data.message);
         });
     </script>

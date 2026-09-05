@@ -166,11 +166,23 @@ def handle_move(data):
     if captured_piece and captured_piece.piece_type == chess.KING:
         winner = 'White' if game['turn'] == chess.WHITE else 'Black'
         save_game_log(game_id)
-        del games[game_id]
-        socketio.emit('game_over', {
+        
+        # Get player names for the message
+        winner_name = game['white_name'] if winner == 'White' else game['black_name']
+        loser_name = game['black_name'] if winner == 'White' else game['white_name']
+        
+        # Send game over to BOTH players individually
+        game_over_data = {
             'winner': winner,
-            'message': f'🏆 {winner} captured the enemy king! Game Over!'
-        }, room=str(game_id))
+            'message': f'🏆 {winner_name} ({winner}) captured the enemy king! Game Over!',
+            'winner_name': winner_name,
+            'loser_name': loser_name
+        }
+        
+        socketio.emit('game_over', game_over_data, room=game['white'])
+        socketio.emit('game_over', game_over_data, room=game['black'])
+        
+        del games[game_id]
         return
     
     # Coin toss for next turn
