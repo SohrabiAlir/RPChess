@@ -1,6 +1,6 @@
 import os
 import chess
-import chess.engine
+import chess.svg
 import random
 import time
 from flask import Flask, render_template, request
@@ -11,65 +11,12 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, cors_allowed_origins="*")
 
-# Stockfish path (adjust for your server)
-STOCKFISH_PATH = "/usr/games/stockfish"
-engine = None
-
-# Load Stockfish if available
-try:
-    engine = chess.engine.SimpleEngine.popen_uci(STOCKFISH_PATH)
-    print("Stockfish loaded successfully!")
-except:
-    print("Warning: Stockfish not found - AI features will be unavailable")
-    engine = None
-
 # Game state
-waiting_player = None  # (sid, nickname)
-games = {}  # game_id -> {'white': sid, 'black': sid, 'board': chess.Board(), 'log': []}
+waiting_player = None
+games = {}
 game_id_counter = 0
 lock = Lock()
 
-# Import your RPChess functions (adapt as needed)
-def evaluate_board(board):
-    """Simple material evaluation (copy from your bots.py)"""
-    if board.king(chess.WHITE) is None:
-        return -1000000
-    if board.king(chess.BLACK) is None:
-        return 1000000
-    
-    piece_values = {
-        chess.PAWN: 100,
-        chess.KNIGHT: 320,
-        chess.BISHOP: 330,
-        chess.ROOK: 500,
-        chess.QUEEN: 900,
-        chess.KING: 20000
-    }
-    
-    score = 0
-    for square in chess.SQUARES:
-        piece = board.piece_at(square)
-        if piece:
-            value = piece_values.get(piece.piece_type, 0)
-            score += value if piece.color == chess.WHITE else -value
-    return score
-
-def get_best_move(board, engine):
-    """Get best move using Stockfish"""
-    if not engine:
-        return None
-    try:
-        analysis_board = board.copy(stack=False)
-        analysis_board.clear_stack()
-        result = engine.analyse(analysis_board, chess.engine.Limit(time=0.5))
-        pv = result.get("pv")
-        if pv:
-            return pv[0]
-        return None
-    except:
-        return None
-
-# Socket.IO Events
 @socketio.on('connect')
 def handle_connect():
     print(f"Client connected: {request.sid}")
@@ -78,17 +25,13 @@ def handle_connect():
 def handle_disconnect():
     global waiting_player
     with lock:
-        # Remove from waiting
         if waiting_player and waiting_player[0] == request.sid:
             waiting_player = None
         
-        # Remove from games
         for game_id, game in list(games.items()):
             if game['white'] == request.sid or game['black'] == request.sid:
-                # Notify other player
                 opponent_sid = game['black'] if game['white'] == request.sid else game['white']
                 socketio.emit('opponent_left', room=opponent_sid)
-                # Save game log if incomplete
                 save_game_log(game_id)
                 del games[game_id]
                 break
@@ -98,17 +41,16 @@ def handle_join(data):
     global waiting_player, game_id_counter
     nickname = data.get('nickname', 'Anonymous')
     
+    print(f"📥 Join request from: {nickname}")
+    
     with lock:
         if waiting_player:
-            # Match found!
             player1_sid, player1_name = waiting_player
             player2_sid = request.sid
             
-            # Create new game
             game_id = game_id_counter
             game_id_counter += 1
             
-            # Randomly assign colors
             if random.random() < 0.5:
                 white_sid, black_sid = player1_sid, player2_sid
                 white_name, black_name = player1_name, nickname
@@ -123,17 +65,18 @@ def handle_join(data):
                 'black_name': black_name,
                 'board': chess.Board(),
                 'log': [],
-                'turn': chess.WHITE  # White always starts in standard chess
+                'turn': chess.WHITE,
+                'move_count': 0
             }
             
-            # Join both players to the game room
             join_room(str(game_id))
-            
-            # Clear waiting player
             waiting_player = None
             
-            # Notify both players
             board_svg = chess.svg.board(games[game_id]['board'], size=400)
+            
+            print(f"🎮 Game {game_id} started: {white_name} (White) vs {black_name} (Black)")
+            
+            # Send to White player
             socketio.emit('game_start', {
                 'game_id': game_id,
                 'color': 'white',
@@ -142,6 +85,7 @@ def handle_join(data):
                 'message': f"You are White against {black_name}"
             }, room=white_sid)
             
+            # Send to Black player
             socketio.emit('game_start', {
                 'game_id': game_id,
                 'color': 'black',
@@ -150,17 +94,15 @@ def handle_join(data):
                 'message': f"You are Black against {white_name}"
             }, room=black_sid)
             
-            print(f"Game {game_id} started: {white_name} (White) vs {black_name} (Black)")
         else:
-            # Put this player in waiting
             waiting_player = (request.sid, nickname)
+            print(f"⏳ {nickname} added to waiting queue")
             emit('waiting', {'message': f"Waiting for opponent, {nickname}..."})
 
 @socketio.on('move')
 def handle_move(data):
     game_id = data.get('game_id')
-    move_uci = data.get('move')
-    ai_move = data.get('ai', False)
+    move_san = data.get('move')  # Now expecting algebraic notation
     
     if game_id not in games:
         emit('error', {'message': 'Game not found'})
@@ -178,38 +120,48 @@ def handle_move(data):
         emit('error', {'message': 'Not your turn! (Black)'})
         return
     
-    # Parse move
+    # Parse algebraic notation
     try:
-        move = board.parse_uci(move_uci)
-    except:
-        emit('error', {'message': 'Invalid move format. Use UCI (e.g., e2e4)'})
+        move = board.parse_san(move_san)
+    except ValueError:
+        emit('error', {'message': f'Invalid algebraic notation: {move_san}. Use e.g., Nf3, exd5, O-O'})
         return
     
     # Check if move is pseudo-legal (RPChess)
     if move not in board.pseudo_legal_moves:
-        emit('error', {'message': f'Illegal move: {move_uci}'})
+        emit('error', {'message': f'Illegal move: {move_san}'})
         return
     
     # Make the move
     captured_piece = board.piece_at(move.to_square)
     board.push(move)
+    game['move_count'] += 1
+    
+    # Get SAN representation
+    try:
+        san = board.san(move)
+    except:
+        san = move_san
     
     # Log the move
     game['log'].append({
-        'move': move_uci,
-        'san': board.san(move) if board.san else move_uci,
+        'move_number': game['move_count'],
+        'move': move.uci(),
+        'san': san,
         'player': 'White' if game['turn'] == chess.WHITE else 'Black',
         'captured': str(captured_piece) if captured_piece else None
     })
     
-    # Check for king capture
+    # Check for king capture (RPChess win condition)
     if captured_piece and captured_piece.piece_type == chess.KING:
         winner = 'White' if game['turn'] == chess.WHITE else 'Black'
-        save_game_log(game_id, board, winner)
+        save_game_log(game_id)
+        # Get the game object before deleting
+        game_copy = games[game_id]
         del games[game_id]
         socketio.emit('game_over', {
             'winner': winner,
-            'message': f'{winner} captured the enemy king!'
+            'message': f'🏆 {winner} captured the enemy king! Game Over!'
         }, room=str(game_id))
         return
     
@@ -219,25 +171,32 @@ def handle_move(data):
     game['turn'] = next_turn
     next_player = 'White' if next_turn == chess.WHITE else 'Black'
     
-    # Update board for both players
+    # Generate new board SVG
     board_svg = chess.svg.board(board, size=400)
+    
+    # Broadcast update to BOTH players in the room
     socketio.emit('board_update', {
         'board_svg': board_svg,
         'turn': next_player,
-        'last_move': move_uci,
+        'last_move': san,
         'message': f"Coin toss: {coin} -> {next_player}'s turn!"
     }, room=str(game_id))
 
-def save_game_log(game_id, board=None, winner=None):
-    """Save game log to file"""
+def save_game_log(game_id):
     if game_id not in games:
         return
     
     game = games[game_id]
-    if board is None:
-        board = game['board']
+    board = game['board']
     
-    if winner is None:
+    white_king = board.king(chess.WHITE)
+    black_king = board.king(chess.BLACK)
+    
+    if white_king is None:
+        winner = 'Black'
+    elif black_king is None:
+        winner = 'White'
+    else:
         winner = 'Incomplete'
     
     filename = f"games/game_{game_id}_{int(time.time())}.txt"
@@ -249,22 +208,24 @@ def save_game_log(game_id, board=None, winner=None):
         f.write(f"White: {game['white_name']}\n")
         f.write(f"Black: {game['black_name']}\n")
         f.write(f"Winner: {winner}\n")
-        f.write("-" * 50 + "\n")
-        f.write("Moves:\n")
-        for i, entry in enumerate(game['log'], 1):
+        f.write(f"Total Moves: {game['move_count']}\n")
+        f.write("-" * 60 + "\n")
+        f.write("Move Log:\n")
+        for entry in game['log']:
+            move_num = entry['move_number']
             player = entry['player']
-            move_san = entry.get('san', entry['move'])
-            captured = f" captures {entry['captured']}" if entry.get('captured') else ""
-            f.write(f"{i:3d}. {player:5s}: {move_san}{captured}\n")
-        f.write("-" * 50 + "\n")
-        f.write(f"Final position FEN: {board.fen()}\n")
+            san = entry['san']
+            captured = f" (captures {entry['captured']})" if entry.get('captured') else ""
+            f.write(f"{move_num:3d}. {player:5s}: {san}{captured}\n")
+        f.write("-" * 60 + "\n")
+        f.write(f"Final Position FEN:\n{board.fen()}\n")
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    # Create games directory
     os.makedirs('games', exist_ok=True)
-    # Run the server
+    print("♟️ RPChess Server Starting...")
+    print("📡 Listening on http://0.0.0.0:5005")
     socketio.run(app, host='0.0.0.0', port=5005, debug=True)
