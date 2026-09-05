@@ -122,6 +122,7 @@ def handle_move(data):
     
     # Parse algebraic notation
     try:
+        print(move)
         move = board.parse_san(move_san)
     except ValueError:
         emit('error', {'message': f'Invalid algebraic notation: {move_san}. Use e.g., Nf3, exd5, O-O'})
@@ -169,6 +170,7 @@ def handle_move(data):
     coin = random.randint(0, 1)
     next_turn = chess.WHITE if coin == 0 else chess.BLACK
     game['turn'] = next_turn
+    board.turn = next_turn
     next_player = 'White' if next_turn == chess.WHITE else 'Black'
     
     # Generate new board SVG
